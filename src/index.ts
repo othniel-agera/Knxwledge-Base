@@ -1,8 +1,8 @@
 const now = Date.now();
-const express = require("express");
-const app = express();
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
 
+const app = express();
 dotenv.config();
 
 app.use("/", (req, res) => {
@@ -29,10 +29,7 @@ app.use(function (err, req, res, next) {
 
 app.listen(process.env.PORT, function () {
 	console.log(
-		{
-			log_message: `Server started on port ${process.env.PORT}`,
-			duration: `${(Date.now() - now) / 1000}s`,
-		},
-		"SERVER_START"
+		`Server started on port ${process.env.PORT}`,
+		`${(Date.now() - now) / 1000}s`
 	);
 });
